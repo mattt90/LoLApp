@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BlossomiShymae.GrrrLCU" Version="0.14.0" />
+    <PackageReference Include="Kunc.RiotGames.Api" Version="0.7.*" />
+    <PackageReference Include="Kunc.RiotGames.Core" Version="0.7.*" />
+    <PackageReference Include="Kunc.RiotGames.Lol.DataDragon" Version="0.7.*" />
+    <PackageReference Include="Kunc.RiotGames.Lol.GameClient" Version="0.7.*" />
+    <PackageReference Include="Kunc.RiotGames.Lol.LeagueClientUpdate" Version="0.7.*" />
+  </ItemGroup>
+</Project>
