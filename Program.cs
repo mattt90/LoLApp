@@ -6,6 +6,7 @@ using Kunc.RiotGames.Api;
 using Kunc.RiotGames.Lol.DataDragon;
 using Kunc.RiotGames.Lol.GameClient;
 using Kunc.RiotGames.Lol.LeagueClientUpdate;
+using LolApp.BackgroundServices;
 using LolApp.Lcu;
 using Websocket.Client;
 using Timer = System.Timers.Timer;
@@ -50,6 +51,8 @@ builder.Services.AddRiotGamesApi(c => c.ApiKey = builder.Configuration["RGAPIKEY
 
 builder.Services.AddSingleton<ILcuClient, LcuClient>();
 
+
+builder.Services.AddHostedService<AutoAcceptQueueBackgroundService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
