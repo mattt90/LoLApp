@@ -7,11 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlossomiShymae.GrrrLCU" Version="0.14.0" />
+    <PackageReference Include="BlossomiShymae.GrrrLCU" Version="0.14.*" />
     <PackageReference Include="Kunc.RiotGames.Api" Version="0.7.*" />
     <PackageReference Include="Kunc.RiotGames.Core" Version="0.7.*" />
     <PackageReference Include="Kunc.RiotGames.Lol.DataDragon" Version="0.7.*" />
     <PackageReference Include="Kunc.RiotGames.Lol.GameClient" Version="0.7.*" />
     <PackageReference Include="Kunc.RiotGames.Lol.LeagueClientUpdate" Version="0.7.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.*">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.*" />
   </ItemGroup>
 </Project>

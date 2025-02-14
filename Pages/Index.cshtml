@@ -8,3 +8,29 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<form method="POST">
+    <input type="hidden" asp-for="AutoSettings.Id">
+    <div>
+        <input type="checkbox" asp-for="AutoSettings.AutoAcceptQueue" checked="@Model.AutoSettings.AutoAcceptQueue" />
+        <label asp-for="AutoSettings.AutoAcceptQueue">Auto Accept Queue</label>
+    </div>
+    <div>
+        <input type="checkbox" asp-for="AutoSettings.AutoRequeue" checked="@Model.AutoSettings.AutoRequeue" />
+        <label asp-for="AutoSettings.AutoRequeue">Auto Requeue</label>
+    </div>
+    <div>
+        <input type="checkbox" asp-for="AutoSettings.AutoRandomChampionSkin" checked="@Model.AutoSettings.AutoRandomChampionSkin" />
+        <label asp-for="AutoSettings.AutoRandomChampionSkin">Auto Random Champion Skin</label>
+    </div>
+    <div>
+        <input type="checkbox" asp-for="AutoSettings.AutoRerollAram" checked="@Model.AutoSettings.AutoRerollAram" />
+        <label asp-for="AutoSettings.AutoRerollAram">Auto Reroll Aram</label>
+    </div>
+    <div>
+        <input type="checkbox" asp-for="AutoSettings.AutoSelectChampion" checked="@Model.AutoSettings.AutoSelectChampion" />
+        <label asp-for="AutoSettings.AutoSelectChampion">Auto Select Champion</label>
+    </div>
+
+    <input type="submit">
+</form>

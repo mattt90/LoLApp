@@ -4,41 +4,27 @@ using BlossomiShymae.GrrrLCU;
 using LolApp.Data;
 using LolApp.Lcu;
 using Microsoft.EntityFrameworkCore;
+using Websocket.Client;
 
 namespace LolApp.BackgroundServices;
 
-public class AutoAcceptQueueBackgroundService : IHostedService, IDisposable
+public class AutoAcceptQueueBackgroundServiceOld : LcuEventListenerBaseBackgroundService
 {
+    private LcuWebsocketClient? _lcuWebSocketClient { get; set; }
     private ILcuClient _lcuClient { get; set; }
     private LeagueContext _context { get; }
-    private ILcuEventListener _lcuEventListener { get; }
-    public AutoAcceptQueueBackgroundService(
+    private bool _connected = false;
+    private bool _disposed = false;
+    public AutoAcceptQueueBackgroundServiceOld(
         LeagueContext leagueContext,
-        ILcuClient lcuClient,
-        ILcuEventListener lcuEventListener)
+        ILcuClient lcuClient) : base()
     {
         _context = leagueContext;
         _lcuClient = lcuClient;
-        _lcuEventListener = lcuEventListener;
     }
+    
 
-    public void Dispose()
-    {
-    }
-
-    public async Task StartAsync(CancellationToken cancellationToken)
-    {
-        _lcuEventListener.AddEventListener(Client_EventReceived_AcceptQueuePop);
-        await Task.CompletedTask;
-    }
-
-    public async Task StopAsync(CancellationToken cancellationToken)
-    {
-        Dispose();
-        await Task.CompletedTask;
-    }
-
-    private async void Client_EventReceived_AcceptQueuePop(EventMessage message)
+    public override async void Client_EventReceived(EventMessage message)
     {
         if (message.Data?.Uri?.Equals("/lol-gameflow/v1/gameflow-phase") == true)
         {
